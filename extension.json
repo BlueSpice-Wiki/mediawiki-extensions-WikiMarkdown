@@ -1,6 +1,6 @@
 {
 	"name": "WikiMarkdown",
-	"version": "1.1.3",
+	"version": "1.2.0-mw1.47",
 	"author": [
 		"Nathan Kuenzig"
 	],
@@ -9,7 +9,10 @@
 	"license-name": "MIT",
 	"type": "parserhook",
 	"requires": {
-		"MediaWiki": ">= 1.34"
+		"MediaWiki": ">= 1.44.0",
+		"platform": {
+			"php": ">= 8.1"
+		}
 	},
 	"MessagesDirs": {
 		"WikiMarkdown": [
@@ -18,9 +21,7 @@
 	},
 	"AutoloadClasses": {
 		"WikiMarkdown": "includes/WikiMarkdown.php",
-		"ResourceLoaderWikiMarkdownVisualEditorModule": "includes/ResourceLoaderWikiMarkdownVisualEditorModule.php",
-		"MarkdownContentHandler": "includes/MarkdownContentHandler.php",
-		"MarkdownContent": "includes/MarkdownContent.php"
+		"WikiMarkdownParsoidTag": "includes/WikiMarkdownParsoidTag.php"
 	},
 	"ResourceFileModulePaths": {
 		"localBasePath": "modules",
@@ -28,10 +29,24 @@
 	},
 	"Hooks": {
 		"ParserFirstCallInit": "WikiMarkdown::onParserFirstCallInit",
-		"ResourceLoaderRegisterModules": "WikiMarkdown::onResourceLoaderRegisterModules",
-		"ContentHandlerDefaultModelFor": "WikiMarkdown::onContentHandlerDefaultModelFor",
-		"CodeEditorGetPageLanguage": "WikiMarkdown::onCodeEditorGetPageLanguage"
+		"ResourceLoaderRegisterModules": "WikiMarkdown::onResourceLoaderRegisterModules"
 	},
+	"ParsoidModules": [
+		{
+			"name": "WikiMarkdown",
+			"tags": [
+				{
+					"name": "markdown",
+					"handler": "WikiMarkdownParsoidTag",
+					"options": {
+						"html2wt": {
+							"format": "block"
+						}
+					}
+				}
+			]
+		}
+	],
 	"attributes": {
 		"VisualEditor": {
 			"PluginModules": [
@@ -39,7 +54,6 @@
 			]
 		}
 	},
-	"callback": "WikiMarkdown::onRegistration",
 	"config": {
 		"AllowMarkdownExtra": {
 			"value": false
@@ -56,9 +70,6 @@
 				"sub": true
 			}
 		}
-	},
-	"ContentHandlers": {
-		"markdown": "MarkdownContentHandler"
 	},
 	"TrackingCategories": [
 		"markdown-error-category"
