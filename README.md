@@ -71,6 +71,7 @@ _This is italic text_
 * When specifying code blocks in markdown, this extension will automatically apply the [SyntaxHighlight](https://www.mediawiki.org/wiki/Extension:SyntaxHighlight) extension if it is installed.  All languages supported by the SyntaxHighlight extension will work.
 * When using Parsedown Extended, this extension will automatically apply the [Math](https://www.mediawiki.org/wiki/Extension:Math) extension if it is installed to any math blocks by default.  This can be turned off by either not using Parsedown Extended, or modifying `$wgParsedownExtendedParameters`.  The following syntaxes are valid: `\[ ... \]`/`$$ ... $$` (for block mode) and `\( ... \)`/`$ ... $` (for inline mode)
 * When using the [VisualEditor](https://www.mediawiki.org/wiki/Extension:VisualEditor) extension with the CodeEditor extension, markdown blocks will be editable using a markdown editor.
+* When the ContentDroplets extension (part of BlueSpice) is installed, a "Markdown" droplet is available in the VisualEditor droplets dialog. It opens the markdown editor for a new `<markdown>` block. It is registered through the `ContentDroplets` attribute in `extension.json`, so it does nothing without ContentDroplets.
 
 # Credits
 

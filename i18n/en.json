@@ -9,5 +9,7 @@
 	"markdown-error-category-desc": "There was an error when attempting to parse markdown included on the page.",
 	"markdown-visualeditor-mwmarkdowninspector-code": "Code",
 	"markdown-visualeditor-mwmarkdowninspector-title": "Markdown",
+	"wikimarkdown-droplet-name": "Markdown",
+	"wikimarkdown-droplet-desc": "Text formatted with Markdown syntax",
 	"markdown-error-parse-failure": "Failed to parse markdown"
 }

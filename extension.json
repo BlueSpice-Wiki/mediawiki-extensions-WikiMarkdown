@@ -21,11 +21,17 @@
 	},
 	"AutoloadClasses": {
 		"WikiMarkdown": "includes/WikiMarkdown.php",
-		"WikiMarkdownParsoidTag": "includes/WikiMarkdownParsoidTag.php"
+		"WikiMarkdownParsoidTag": "includes/WikiMarkdownParsoidTag.php",
+		"WikiMarkdownDroplet": "includes/WikiMarkdownDroplet.php"
 	},
 	"ResourceFileModulePaths": {
 		"localBasePath": "modules",
 		"remoteExtPath": "WikiMarkdown/modules"
+	},
+	"ResourceModules": {
+		"ext.wikimarkdown.droplet": {
+			"styles": "droplet/droplet.markdown.css"
+		}
 	},
 	"Hooks": {
 		"ParserFirstCallInit": "WikiMarkdown::onParserFirstCallInit",
@@ -52,6 +58,13 @@
 			"PluginModules": [
 				"ext.wikimarkdown.visualEditor"
 			]
+		},
+		"ContentDroplets": {
+			"Droplets": {
+				"markdown": {
+					"class": "WikiMarkdownDroplet"
+				}
+			}
 		}
 	},
 	"config": {
