@@ -1,5 +1,6 @@
 {
 	"name": "mediawiki/wikimarkdown",
+	"type": "mediawiki-extension",
 	"description": "Markdown syntax for MediaWiki",
 	"extra": {
 		"installer-name": "WikiMarkdown"
